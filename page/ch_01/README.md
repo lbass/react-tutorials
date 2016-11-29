@@ -4,6 +4,8 @@
 - font-family(X) -> fontFamily(O)
 - CSS 프로퍼티를 사용할때에 자바스크립트 API이름을 사용해야 한다.
 
+<pre>
+<code>
 {
   className: "pretty",  //className 사용
   htmlFor: "me",
@@ -13,3 +15,5 @@
     fontFamily: "Verdana"
   }
 }
+</code>
+</pre>
