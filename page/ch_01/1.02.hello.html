@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello React 02</title>
+    <title>Hello React 03</title>
     <meta charset="utf-8">
   </head>
   <body>
@@ -12,11 +12,14 @@
     <script src="../../node_modules/react/dist/react.js"></script>
     <script src="../../node_modules/react-dom/dist/react-dom.js"></script>
     <script>
-      //렌더링을 위한 객체다.
-      console.dir(ReactDOM);
-      //수많은 DOM요소를 제공한다.
-      console.dir(React.DOM);
-
+    <!-- HTML 페이지를 표현하기 위해 다양한 ReactDOM 객체를 계층형으로 부른다.-->
+    ReactDOM.render(
+      React.DOM.h1({id : "h1"},
+        React.DOM.span({id : "span"}, React.DOM.em({id : "em"}, "Hell"), "o"),
+        " world!"
+      ),
+      document.getElementById("app")
+    );
     </script>
   </body>
 </html>

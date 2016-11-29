@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello React 03</title>
+    <title>Hello React 04</title>
     <meta charset="utf-8">
   </head>
   <body>
@@ -13,10 +13,16 @@
     <script src="../../node_modules/react-dom/dist/react-dom.js"></script>
     <script>
     ReactDOM.render(
-      React.DOM.h1({id : "h1"},
-        React.DOM.span({id : "span"}, React.DOM.em({id : "em"}, "Hell"), "o"),
-        " world!"
-      ),
+      React.DOM.h1({
+        className: "pretty",
+        htmlFor: "me",
+        style: {
+          background: "black",
+          color: "white",
+          fontFamily: "Verdana"
+        }
+      },
+      "Hello World!"),
       document.getElementById("app")
     );
     </script>

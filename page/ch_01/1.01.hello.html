@@ -13,6 +13,10 @@
     <script src="../node_modules/react-dom/dist/react-dom.js"></script>
     <script>
       console.log("Hello World");
+      //ReactDOM은 화면에 렌더링을 위한 객체다.
+      console.dir(ReactDOM);
+      //React.DOM DOM요소를 제공한다. (ex: span, div ...)
+      console.dir(React.DOM);
       ReactDOM.render(
         React.DOM.h1(null, "Hello World!"), document.getElementById("app")
       );
