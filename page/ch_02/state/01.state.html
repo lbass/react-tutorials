@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React State</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div id="app">
+      <!-- 앱이 렌더링 되는 위치-->
+    </div>
+    <!-- 페이지 렌더링을 우선하기 위해 스크립트 참조를 하단에 위치한다.-->
+    <script src="../../../node_modules/react/dist/react.js"></script>
+    <script src="../../../node_modules/react-dom/dist/react-dom.js"></script>
+    <script>
+    //리액트 컴포넌트를 생성합니다.
+    var TextAreaCounter = React.createClass({
+      propTypes: {
+        text: React.PropTypes.string
+      },
+
+      getDefaultProps: function() {
+        console.info("getDefaultProps");
+        return {
+          text: ''
+        };
+      },
+
+      getInitialState: function() {
+        console.info("getInitialState");
+        return {
+          text: this.props.text
+        };
+      },
+
+      //private 함수의 선언 방식 _를 붙인다.
+      _textChange: function(ev) {
+        console.group("_textChange");
+        console.log("textarea의 값 변경 시 실행합니다.");
+        console.log("setState를 실행합니다.(값이 변경되지 않아도 setState를 호출하면 render가 호출됩니다.)");
+        this.setState({
+          text: ev.target.value
+        });
+        console.log("setState로 상태를 변경 시키면 render함수를 다시 실행합니다.");
+        console.groupEnd("_textChange");
+      },
+
+      render: function() {
+        console.group("render");
+        console.log("최초 로딩시와 setState가 호출되면 화면을 갱신합니다.");
+        console.log("화면을 갱신합니다.");
+        console.groupEnd("render");
+        return React.DOM.div(null,
+          React.DOM.textarea({
+            value: this.state.text,
+            onChange: this._textChange
+          }),
+          React.DOM.h3(null, this.state.text.length)
+        );
+      }
+    });
+
+    ReactDOM.render(
+      React.createElement(TextAreaCounter, {
+        text: "Bob",
+      }),
+      document.getElementById("app")
+    );
+    </script>
+  </body>
+</html>
