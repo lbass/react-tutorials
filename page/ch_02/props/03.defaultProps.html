@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React State</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div id="app">
+      <!-- 앱이 렌더링 되는 위치-->
+    </div>
+    <!-- 페이지 렌더링을 우선하기 위해 스크립트 참조를 하단에 위치한다.-->
+    <script src="../../../node_modules/react/dist/react.js"></script>
+    <script src="../../../node_modules/react-dom/dist/react-dom.js"></script>
+    <script>
+    var Component = React.createClass({
+      propTypes : {
+        name: React.PropTypes.string.isRequired,
+      },
+      getDefaultProps: function() {
+        return {
+          name: 'Lbass'
+        }
+      },
+      render: function() {
+        return React.DOM.span(null, "My name is " + this.props.name);
+      }
+    });
+
+    ReactDOM.render(
+      React.createElement(Component, {
+
+      }),
+      document.getElementById("app")
+    );
+    </script>
+  </body>
+</html>
